@@ -1,0 +1,26 @@
+border-1px($color, $direction = false)
+  position relative
+  &::after
+    content ' '
+    display block
+    position absolute
+    left 0
+    if $direction
+      top 0
+    else
+      bottom 0
+    width 100%
+    border-top 1px solid $color
+
+border-none()
+  &::after
+    display: none
+
+bg-image($url)
+  background-image: url($url + "@2x.png")
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+    background-image: url($url + "@3x.png")
+
+lineheightScale(origin)
+  transform: scale(0.5)
+  transform-origin origin
